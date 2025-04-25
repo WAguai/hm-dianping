@@ -4,6 +4,7 @@ package com.hmdp.controller;
 import com.hmdp.dto.Result;
 import com.hmdp.entity.Voucher;
 import com.hmdp.service.IVoucherService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -18,6 +19,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/voucher")
+@Slf4j
 public class VoucherController {
 
     @Resource
@@ -39,8 +41,9 @@ public class VoucherController {
      * @param voucher 优惠券信息，包含秒杀信息
      * @return 优惠券id
      */
-    @PostMapping("seckill")
+    @PostMapping("/seckill")
     public Result addSeckillVoucher(@RequestBody Voucher voucher) {
+        log.info("添加秒杀券");
         voucherService.addSeckillVoucher(voucher);
         return Result.ok(voucher.getId());
     }
