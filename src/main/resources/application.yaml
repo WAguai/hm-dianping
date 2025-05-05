@@ -12,7 +12,8 @@ spring:
   redis:
     host: localhost
     database: 1
-    port: 6379
+    port: 6380
+    password: 123456
     auth: 123456
     lettuce:
       pool:
